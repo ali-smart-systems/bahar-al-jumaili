@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f0e5;
+  --foreground: #20251c;
+  --green-dark: #14251a;
+  --green: #31552f;
+  --green-light: #42623e;
+  --gold: #c6a15b;
+  --gold-light: #e3c77e;
+  --cream: #f4f0e5;
+  --muted: #687060;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Tahoma, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--green-dark);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e8e2d2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #71806c;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+}
+
+.container {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* Hero */
+.hero {
+  background: var(--green-dark);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 75% 30%, rgba(198, 161, 91, 0.08), transparent 30%), radial-gradient(circle at 20% 80%, rgba(65, 100, 63, 0.18), transparent 35%);
+}
+
+/* Gallery */
+.gallery-card {
+  overflow: hidden;
+  border: 1px solid #e1dac8;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 8px 28px rgba(35, 45, 31, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(35, 45, 31, 0.15);
+}
+
+.gallery-image {
+  transition: transform 0.55s ease;
+}
+
+.gallery-card:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.contact-button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(15, 25, 16, 0.22);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 24px, 1180px);
+  }
 }
