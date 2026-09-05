@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: "*",
             allow: "/",
         },
-        sitemap: "https://maqalah-market.netlify.app/sitemap.xml",
+        sitemap: "https://bahar-al-jumaili.vercel.app/sitemap.xml",
     };
 }
 
